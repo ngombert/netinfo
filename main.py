@@ -22,6 +22,7 @@ def main(host, interface):
         # Connect:
         device = driver( hostname=host, username=Username, password=Password)
         device.open()
+        print(GetVlanFromInt(device, interface))
     except ConnectAuthError:
         print('Authentication Error!')
     except ConnectionException:
@@ -44,6 +45,8 @@ def AskForCredentials():
     Password = input ("password : ")
     return Username, Password
 
+def GetVlanFromInt(dev, IntName):
+    return dev.cli("show interface "+ IntName +" switchport")
 
 if __name__ == "__main__":
     device = interface = None
