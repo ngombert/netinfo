@@ -132,3 +132,5 @@ dmypy.json
 # Perso
 Scripts/
 Lib/
+.idea/
+pyvenv.cfg
